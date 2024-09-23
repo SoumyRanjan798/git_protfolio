@@ -1,26 +1,33 @@
-
-import './App.css'
-import About from './components/About'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import Hero from './components/Hero'
-import Navbar from './components/Navbar'
-import Projects from './components/Projects'
-import Service from './components/Service'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Service from './components/Service';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import ServiceDetails from './components/ServiceDetail';
 
 function App() {
-
   return (
-    <div>
+    <Router>
+      <div>
         <Navbar />
-        <Hero />
-        <About />
-        <Service />
-        <Projects />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/services/:id" element={<ServiceDetails />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
         <Footer />
-    </div>
-  )
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;

@@ -1,37 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const services = [
-  {
-    id: 1,
-    title: "Web Design",
-    description: "Creating visually appealing and user-friendly web designs.",
-  },
-  {
-    id: 2,
-    title: "Frontend Development",
-    description: "Building responsive and interactive user interfaces.",
-  },
-  {
-    id: 3,
-    title: "Backend Development",
-    description: "Developing robust server-side logic and databases.",
-  },
-  {
-    id: 4,
-    title: "Full-Stack Development",
-    description: "Combining both frontend and backend development skills.",
-  },
-  {
-    id: 5,
-    title: "Content Writing",
-    description: "Writing content for your business and companies.",
-  },
-  {
-    id: 6,
-    title: "Digital Marketing",
-    description: "Promote your business with our digital marketing team.",
-  },
+  { id: 1, title: "Web Design", description: "Creating visually appealing and user-friendly web designs." },
+  { id: 2, title: "Frontend Development", description: "Building responsive and interactive user interfaces." },
+  { id: 3, title: "Backend Development", description: "Developing robust server-side logic and databases." },
+  { id: 4, title: "Full-Stack Development", description: "Combining both frontend and backend development skills." },
+  { id: 5, title: "Content Writing", description: "Writing content for your business and companies." },
+  { id: 6, title: "Digital Marketing", description: "Promote your business with our digital marketing team." },
 ];
+
 const Service = () => {
   return (
     <div className="bg-black text-white py-20" id="service">
@@ -46,7 +24,7 @@ const Service = () => {
             >
               <div
                 className="text-right text-2xl font-bold text-transparent bg-clip-text 
-              bg-gradient-to-r from-green-600 to-blue-400"
+                bg-gradient-to-r from-green-600 to-blue-400"
               >
                 {service.id}
               </div>
@@ -55,7 +33,12 @@ const Service = () => {
                 {service.title}
               </h3>
               <p className="mt-2 text-gray-300">{service.description}</p>
-              <a href="#" className="mt-4 inline-block text-green-400 hover:text-blue-500">Read More</a>
+              <Link
+                to={`/services/${service.id}`}
+                className="mt-4 inline-block text-green-400 hover:text-blue-500"
+              >
+                Read More
+              </Link>
             </div>
           ))}
         </div>
